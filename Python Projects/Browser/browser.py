@@ -8,6 +8,7 @@
 # # ###
 import os
 os.system('cls')
+user = os.environ.get('USERNAME')
 import time
 print("Would you like to update? Y/N")
 ino = input(": ")
