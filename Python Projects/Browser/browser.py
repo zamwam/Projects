@@ -45,7 +45,7 @@ class faf(QMainWindow):
         query = self.search_edit.text()
         url = f"https://www.duckduckgo.com/html/?q={query}"
         self.webview.setUrl(QUrl(url))
-        if query == "youtube" and "Youtube" and "yotube" and "yt" and "yutube" and "tootube" and "youttube" and "yourube" and "yuotube" and "yuotbue" and "ytbe" and "youtube":
+        if query == "yt" and "youtube" and "Youtube":
             self.webview.setUrl(QUrl("https://www.youtube.com/"))
             print("> 1100")
         elif query == "gpt":
@@ -111,7 +111,7 @@ class faf(QMainWindow):
 
         option3_action = QAction("About", self)
         option3_action.triggered.connect(lambda: self.apply_preset("Option 3"))
-        options_menu.addAction(option4_action)
+        options_menu.addAction(option3_action)
 
 
 
