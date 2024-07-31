@@ -1,7 +1,7 @@
 import dropbox
 
 # Set up credentials
-dbx = dropbox.Dropbox('sl.B6HpD_zdvX757hMA5ZhnWPYHWQwl1953UVPcUKacDIVqrjZOgItaZ9TA-YJqM0V3mvamsoqjGJard8EB2gabsWhwyu1svz7DkR56KqYNWIRGqTYr1CzXgAPKN5KZAhvozFGUFPR8dfHW')
+dbx = dropbox.Dropbox('api_key')
 
 # Upload a file
 file_path = input("File Path: ")
