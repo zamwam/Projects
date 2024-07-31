@@ -90,12 +90,18 @@ class YouTubeViewer(QMainWindow):
 
     def download(self):
         video_url = self.webview.url().toString()
-        ydl_opts = {'outtmpl': 'songs/%(title)s.%(ext)s'}
-        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            if not os.path.exists("songs"):
-                os.makedirs("songs")
-            os.chdir("songs")
-            ydl.download([video_url])
+        ydl_opts = {'outtmpl': '%(title)s.%(ext)s'}
+        download_dir = QFileDialog.getExistingDirectory(self, "Select Download Directory")
+        if download_dir:
+            os.chdir(download_dir)
+            try:
+                with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+                    ydl.download([video_url])
+                    QMessageBox.information(self, "Download Complete", "Video downloaded successfully!")
+            except Exception as e:
+                QMessageBox.critical(self, "Download Error", str(e))
+        else:
+            QMessageBox.information(self, "Download Cancelled", "Download cancelled by user.")
 
     def go_to_home(self):
         self.webview.setUrl(QUrl("https://www.youtube.com/"))
